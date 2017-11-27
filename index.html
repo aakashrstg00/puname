@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MyPuns</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js">
+    <style>
+        iframe {
+            margin: 10px;
+        }
+
+    </style>
+</head>
+
+<script>
+    var commentArrayFalseParent = [
+        '345507342526462',
+        '345510519192811',
+        '345510049192858',
+        '345509399192923',
+        '345509072526289',
+        '345508479193015',
+        '345507499193113',
+        '345505869193276',
+        '345504545860075',
+        '345471722530024',
+        '345472699196593',
+        '345473752529821',
+        '345474975863032',
+        '345476125862917',
+        '345477062529490',
+        '345477375862792',
+        '345478039196059',
+        '345478915862638',
+        '345479229195940',
+        '345479779195885',
+        '345480285862501',
+        '345480689195794',
+        '345481149195748',
+        '345482182528978',
+        '345482579195605',
+        '345483562528840',
+        '345483892528807',
+        '345484992528697',
+        '345486249195238',
+        '345488305861699',
+        '345490242528172',
+        '345490905861439',
+        '345491425861387',
+        '345491705861359',
+        '345492825861247',
+        '345496129194250',
+        '345499219193941',
+        '345503625860167'
+    ];
+
+    var commentArrayTrueParent = [{
+            cid: '345492825861247',
+            rcid: '345502722526924'
+        },
+        {
+            cid: '345498792527317',
+            rcid: '345499255860604'
+        },
+        {
+            cid: '345503029193560',
+            rcid: '345503349193528'
+        },
+        {
+            cid: '345507915859738',
+            rcid: '345508522526344'
+        },
+        {
+            cid: '345506395859890',
+            rcid: '345506565859873'
+        }
+    ];
+
+    var config = {
+        p1: 'https://www.facebook.com/plugins/comment_embed.php?href=https%3A%2F%2Fwww.facebook.com%2FPunnerJanam%2Fposts%2F345470512530145%3Fcomment_id%3D',
+        pmid: '%26reply_comment_id%3D',
+        p2: '&include_parent=false',
+        p22: '&include_parent=true'
+    }
+
+</script>
+
+<body>
+    <div class="container" id="non"></div>
+    <hr>
+    <div class="container" id="reply"></div>
+    <script>
+        var d1 = document.getElementById("non");
+        var d2 = document.getElementById("reply");
+
+        commentArrayFalseParent.forEach(cid => {
+            var i = document.createElement('iframe');
+            var url = config.p1 + cid + config.p2;
+            i.style.border = 'none';
+            i.style.overflow = 'hidden';
+            i.setAttribute("scrolling", "no");
+            i.setAttribute("frameborder", "0");
+            i.setAttribute("scrolling", "no");
+            i.width = "560";
+            i.height = "210";
+            i.src = url;
+            d1.appendChild(i);
+        });
+
+        commentArrayTrueParent.forEach(o => {
+            var i = document.createElement('iframe');
+            var url = config.p1 + o.cid + config.pmid + o.rcid + config.p22;
+            i.style.border = 'none';
+            i.style.overflow = 'hidden';
+            i.setAttribute("scrolling", "no");
+            i.setAttribute("frameborder", "0");
+            i.setAttribute("scrolling", "no");
+            i.width = "560";
+            i.height = "310";
+            i.src = url;
+            d2.appendChild(i);
+        });
+
+    </script>
+</body>
+
+</html>
